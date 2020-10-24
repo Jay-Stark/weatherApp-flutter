@@ -13,7 +13,7 @@ class Klimatic extends StatefulWidget {
 
 class _KlimaticState extends State<Klimatic> {
 
-  String _cityEntered = "bhubaneswar";
+  String _cityEntered = "cuttack";
 
   Future _goToNextScreen(BuildContext context) async {
 
