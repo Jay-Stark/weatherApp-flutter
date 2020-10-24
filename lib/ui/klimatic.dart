@@ -39,7 +39,7 @@ class _KlimaticState extends State<Klimatic> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Klimatic'),
+        title: new Text('Weather'),
         centerTitle: true,
         backgroundColor: Colors.redAccent,
         actions: <Widget>[
@@ -56,7 +56,7 @@ class _KlimaticState extends State<Klimatic> {
             child: new Image.asset(
               'images/umbrella.png',
               width: 490.0,
-              height: 1200.0,
+              height: 700.0,
               fit: BoxFit.fill,
             ),
           ),
@@ -84,7 +84,7 @@ class _KlimaticState extends State<Klimatic> {
   Future<Map> getWeather(String appId, String city) async {
     String apiUrl =
         'http://api.openweathermap.org/data/2.5/weather?q=$city&appid='
-        '${util.appId}&units=metric';
+        '${util.appId}&units=imperial';
 
     http.Response response = await http.get(apiUrl);
 
@@ -100,13 +100,13 @@ class _KlimaticState extends State<Klimatic> {
           if (snapshot.hasData && snapshot.data['cod'] != '404') {
             Map content = snapshot.data;
             return new Container(
-              margin: const EdgeInsets.fromLTRB(30.0, 250.0, 0.0, 0.0),
+              margin: const EdgeInsets.fromLTRB(30.0, 270.0, 0.0, 0.0),
               child: new Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   new ListTile(
                     title: new Text(
-                      content['main']['temp'].toString() +" C",
+                      content['main']['temp'].toString() +" S",
                       style: new TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 49.9,
